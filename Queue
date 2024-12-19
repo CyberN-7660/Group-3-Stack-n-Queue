@@ -1,0 +1,39 @@
+class Queue: 
+    # Constructor to initialize the queue as an empty list.
+    def __init__(self):  
+        self.queue = []
+
+    # Function to add an item to the queue.
+    def enqueue(self, item):  
+        self.queue.append(item)  # Adds the item to the end of the list.
+
+    # Function to remove the first item from the queue.
+    def dequeue(self):  
+        if not self.is_empty():  # Check if the queue is not empty.
+            return self.queue.pop(0)  # Removes and returns the first item.
+        return None  # Returns None if the queue is empty.
+
+    # Function to check the front item without removing it.
+    def front(self):  
+        if not self.is_empty():  # Check if the queue is not empty.
+            return self.queue[0]  # Returns the first item without removing it.
+        return None  # Returns None if the queue is empty.
+
+    # Function to check if the queue is empty.
+    def is_empty(self):  
+        return len(self.queue) == 0  # Returns True if queue has no items.
+
+# Demonstration of Queue
+def main():
+    q = Queue()  # Create an instance of the Queue class.
+    while True:
+        num = int(input("Enter a number (999 to stop): "))
+        if num == 999:
+            break
+        q.enqueue(num)  # Add the entered number to the queue.
+    
+    print("Dequeuing Numbers:")
+    while not q.is_empty():
+        print(q.dequeue())  # Remove and print numbers from the queue.
+
+main()
