@@ -1,35 +1,40 @@
 class Stack: 
+    # Constructor to initialize the stack as an empty list.
     def __init__(self): 
         self.stack = []
-        
+
+    # Function to add an item to the stack.
     def push(self, item):  
-        self.stack.append(item)
+        self.stack.append(item)  # Adds the item to the end of the list.
 
+    # Function to remove the most recently added item from the stack.
     def pop(self):  
-        if not self.is_empty():
-            return self.stack.pop()
-        return None
+        if not self.is_empty():  # Check if the stack is not empty.
+            return self.stack.pop()  # Removes and returns the last item.
+        return None  # Returns None if the stack is empty.
 
+    # Function to check the top item without removing it.
     def peek(self):  
-        if not self.is_empty():
-            return self.stack[-1]
-        return None
+        if not self.is_empty():  # Check if the stack is not empty.
+            return self.stack[-1]  # Returns the last item without removing it.
+        return None  # Returns None if the stack is empty.
 
+    # Function to check if the stack is empty.
     def is_empty(self):  
-        return len(self.stack) == 0
+        return len(self.stack) == 0  # Returns True if stack has no items.
 
 # Demonstration of Stack
 
 def main():
-    s = Stack()
+    s = Stack()  # Create an instance of the Stack class.
     while True:
         num = int(input("Enter a number (999 to stop): "))
         if num == 999:
             break
-        s.push(num)
+        s.push(num)  # Push the entered number onto the stack.
     
     print("Numbers in STACK (in reverse):")
     while not s.is_empty():
-        print(s.pop())
+        print(s.pop())  # Pop and print numbers from the stack.
 
 main()
